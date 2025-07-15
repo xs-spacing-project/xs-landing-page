@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xs Parking - Find Serenity, Not Parking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'main-bg': '#101012',
+                        'card-bg': '#1E1E1E',
+                        'icon-bg': '#3E444B',
+                        'all-white': '#FFFFFF',
+                        'text-body': '#A3A3A3',
+                        'text-heading': '#F5F5F5',
+                        'active-accent-light': '#D2DFFF',
+                        'active-accent-dark': '#345177',
+                        'blue-accent': '#0057FF',
+                        'green-accent': '#00C853',
+                        'red-accent': '#DD2C00',
+                        'yellow-accent': '#FFD600',
+                        // Light Theme Colors
+                        'light-bg': '#F9FAFB', // gray-50
+                        'light-card-bg': '#FFFFFF',
+                        'light-text-body': '#6B7280', // gray-500
+                        'light-text-heading': '#111827', // gray-900
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'glowing-dark': 'radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,87,255,0.3), transparent), radial-gradient(ellipse 80% 50% at 50% 120%,rgba(34,211,238,0.2), transparent)',
+                        'glowing-light': 'radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,87,255,0.08), transparent), radial-gradient(ellipse 80% 50% at 50% 120%,rgba(56,189,248,0.08), transparent)',
+                    },
+                    animation: {
+                        'background-pan': 'background-pan 10s ease-in-out infinite',
+                        'glow': 'glow 20s linear infinite',
+                    },
+                    keyframes: {
+                        'background-pan': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        },
+                        'glow': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '200% 50%' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(0, 87, 255, 0.4);
+        }
+
+        .dark .text-glow {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(0, 87, 255, 0.4);
+        }
+
+        .light .text-glow {
+            text-shadow: 0 0 20px rgba(0, 87, 255, 0.2);
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.6",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.23.1"
+  }
+}
+</script>
+    <script>
+        // Prevent FOUC (Flash of Unstyled Content) for dark mode
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body
+    class="bg-light-bg dark:bg-main-bg text-light-text-body dark:text-text-body font-manrope transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
