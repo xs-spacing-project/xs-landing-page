@@ -1,0 +1,20 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-glow {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(0, 87, 255, 0.4);
+}
+
+.dark .text-glow {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(0, 87, 255, 0.4);
+}
+
+.light .text-glow {
+  text-shadow: 0 0 20px rgba(0, 87, 255, 0.2);
+}
